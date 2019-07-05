@@ -15,3 +15,5 @@ RUN cd client && npm install --production
 COPY . .
 
 RUN cd client && npm run build
+
+CMD ["bash", "-c", "cd server && npm start"]
