@@ -3,12 +3,5 @@
   "description": "Basic node app with express, react, and react-router",
   "repository": "https://github.com/jlamb1/express-react-docker",
   "keywords": ["node", "express", "static", "react"],
-  "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
-    },
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+  "stack": "container"
 }
