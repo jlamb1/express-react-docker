@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:10-alpine
 
 RUN mkdir -p /app
 
@@ -15,5 +15,7 @@ RUN cd client && npm install --production
 COPY . .
 
 RUN cd client && npm run build
+
+RUN apk add bash
 
 CMD ["bash", "-c", "cd server && npm start"]
