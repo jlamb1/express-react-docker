@@ -23,6 +23,12 @@ function BasicExample() {
         <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} />
       </div>
+
+      <form action="/get-contact-by-email" method="POST">
+        <input type="email" name="email" required placeholder="name here">
+        </input>
+        <button type="submit">Submit</button>
+      </form>
     </Router>
   );
 }
