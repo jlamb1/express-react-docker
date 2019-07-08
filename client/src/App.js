@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import ContactForm from './ContactForm'
+import GetContactByEmail from "./components/pages/GetContactByEmail"
 
 function App() {
   return (
@@ -34,28 +34,6 @@ function Home() {
       <h2>Home</h2>
     </div>
   );
-}
-
-class GetContactByEmail extends Component {
-
-  state = {
-    fields: {}
-  }
-
-  onSubmit = (fields) => {
-    this.setState({fields})
-    console.log("Fields: ", fields)
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Enter Email</h2>
-        <ContactForm onSubmit={fields => this.onSubmit(fields)} />
-        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
-      </div>
-    );
-  }
 }
 
 function Topics({ match }) {

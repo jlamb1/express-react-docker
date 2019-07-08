@@ -11,13 +11,24 @@ const Form = styled.form`
 
 export default class ContactForm extends Component {
     state = {
-        email: ''
+        email: '',
+        firstname: ''
     }
 
     onSubmit = (e) => {
         e.preventDefault()
         this.props.onSubmit(this.state)
         //console.log(this.state)
+        fetch(`/get-contact-by-email`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(response => response.JSON)
+        .then(firstname => this.setState({firstname: firstname}))
+        console.log(this.state)
     }
 
     render() {
@@ -30,6 +41,7 @@ export default class ContactForm extends Component {
                     name="email"
                     required placeholder="email" />
                 <button onClick={(e) => this.onSubmit(e)} type="submit">Submit</button>
+                <p posts={this.state.firstname}>{JSON.stringify(this.state.firstname, null, 2)}</p>
             </Form>
         )
     }
