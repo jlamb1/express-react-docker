@@ -32,7 +32,15 @@ export default class ContactForm extends Component {
                     name="email"
                     required placeholder="email" />
                 <button onClick={(e) => this.onSubmit(e)} type="submit">Submit</button>
-                <p>{JSON.stringify(this.state.contactdata.vid, null, 2)}</p>
+                <ul>
+                    <li>VID: {JSON.stringify(this.state.contactdata.vid, null, 2)}</li>
+                </ul>
+
+                <div>
+                    {this.state.contactdata.properties 
+                    ? <p>{JSON.stringify(this.state.contactdata.properties.firstname.value, null, 2)}</p>
+                    : <p>awaiting data</p>}
+                </div>
             </form>
         )
     }
