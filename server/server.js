@@ -35,9 +35,10 @@ app.get('/ping', function (req, res) {
 app.post('/get-contact-by-email', function (req, res) {
 
   request(`https://api.hubapi.com/contacts/v1/contact/email/${req.body.email}/profile?hapikey=${hapikey}`, function (error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:', body); // Print the HTML for the Google homepage.
+    console.log('error:', error);
+    console.log('statusCode:', response && response.statusCode);
+    console.log('body:', body);
+    res.setHeader('Content-Type', 'application/json');
     res.send(body)
   });
 

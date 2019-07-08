@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import ContactForm from './ContactForm'
 
-function BasicExample() {
+function App() {
   return (
     <Router>
       <div>
@@ -10,7 +11,7 @@ function BasicExample() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/get-contact-by-email">Get Contact By Email</Link>
           </li>
           <li>
             <Link to="/topics">Topics</Link>
@@ -20,15 +21,9 @@ function BasicExample() {
         <hr />
 
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
+        <Route path="/get-contact-by-email" component={GetContactByEmail} />
         <Route path="/topics" component={Topics} />
       </div>
-
-      <form action="/get-contact-by-email" method="POST">
-        <input type="email" name="email" required placeholder="name here">
-        </input>
-        <button type="submit">Submit</button>
-      </form>
     </Router>
   );
 }
@@ -41,10 +36,11 @@ function Home() {
   );
 }
 
-function About() {
+function GetContactByEmail() {
   return (
     <div>
-      <h2>About</h2>
+      <h2>Enter Email</h2>
+      <ContactForm />
     </div>
   );
 }
@@ -83,4 +79,4 @@ function Topic({ match }) {
   );
 }
 
-export default BasicExample;
+export default App;
