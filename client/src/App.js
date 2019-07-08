@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ContactForm from './ContactForm'
 
@@ -36,13 +36,26 @@ function Home() {
   );
 }
 
-function GetContactByEmail() {
-  return (
-    <div>
-      <h2>Enter Email</h2>
-      <ContactForm />
-    </div>
-  );
+class GetContactByEmail extends Component {
+
+  state = {
+    fields: {}
+  }
+
+  onSubmit = (fields) => {
+    this.setState({fields})
+    console.log("Fields: ", fields)
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Enter Email</h2>
+        <ContactForm onSubmit={fields => this.onSubmit(fields)} />
+        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+      </div>
+    );
+  }
 }
 
 function Topics({ match }) {
