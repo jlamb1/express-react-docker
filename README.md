@@ -2,6 +2,8 @@
 
 (add HAPI_KEY env in heroku to your api key.)
 
+Requirements: Heroku account
+
 **local-build:**
 
 run `make start` from the root, then hit the site at localhost:8080.
