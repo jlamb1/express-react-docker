@@ -6,6 +6,8 @@ Requirements: Heroku account
 
 **local-build:**
 
+change server/.env.example to .env, and add your key
+
 run `make start` from the root, then hit the site at localhost:8080.
 
 Machine Requirements: Docker
