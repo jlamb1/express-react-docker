@@ -1,2 +1,2 @@
 start:
-	docker build -t jlamb-express . && docker-compose up -d --build
+	docker build -t jlamb-express . && docker run -d -p 8080:8080 jlamb-express

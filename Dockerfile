@@ -16,6 +16,4 @@ COPY . .
 
 RUN cd client && npm run build
 
-RUN apk add bash
-
-CMD ["bash", "-c", "cd server && npm start"]
+CMD ["sh", "-c", "cd server && npm start"]
